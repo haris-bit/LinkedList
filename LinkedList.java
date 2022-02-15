@@ -64,6 +64,55 @@ public class LinkedList {
     output += "<tail>";
     System.out.println(output);
     return output;
-  }  
+  }
+  
+  // implementing the nth-last-node-finder function
+  public static Node nthLastNode(LinkedList list, int n) {
+    Node current = null;
+    Node tailSeeker = list.head;
+    int count = 0;
+    while (tailSeeker != null) {
+      tailSeeker = tailSeeker.getNextNode();
+      if (count >= n) {
+        if (current == null) {
+          current = list.head;
+        }
+        current = current.getNextNode();
+      }
+      count++;
+    }
+    return current;
+  }
+
+  // implementing the findMiddle function:
+  public static Node findMiddle(LinkedList linkedList) {
+    Node fast = linkedList.head;
+    Node slow = linkedList.head;
+   
+    while (fast != null) {
+      fast = fast.getNextNode();
+      if (fast != null) {
+        fast = fast.getNextNode();
+        slow = slow.getNextNode();
+      }
+    }
+    return slow;
+  }
+  
+  // Half-Speed (findMiddle alternative) 
+  // public static Node findMiddleAlt(LinkedList linkedList) {
+  //   int count = 0;
+  //   Node fast = linkedList.head;
+  //   Node slow = linkedList.head;
+   
+  //   while(fast != null) {
+  //     fast = fast.getNextNode();
+  //     if (count % 2 != 0) {
+  //       slow = slow.getNextNode();
+  //     }
+  //     count++;
+  //   }
+  //   return slow;
+  // }  
 
 }
