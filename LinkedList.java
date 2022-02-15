@@ -115,4 +115,15 @@ public class LinkedList {
   //   return slow;
   // }  
 
+
+  // Use .createList(length) to generate linked lists with data from 1 -> 2 -> .. -> length to test out your function. 
+  // For instancegenerateTestLinkedList(4) results in 1 -> 2 -> 3 -> 4.
+  public static LinkedList createList(int length) {
+    LinkedList list = new LinkedList();
+    for (int i = 1; i <= length; i++) {
+      list.addToTail(i);
+    }
+    return list;
+  }  
+
 }
